@@ -1,7 +1,10 @@
+import {AppComment} from "./app-comment";
+import {User} from "./user";
+
 export interface WebApp {
   id: number;
   name : string;
   rating: number;
-  comments : string[];
-
+  comments : AppComment[];
+  creator : User;
 }

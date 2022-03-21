@@ -1,5 +1,11 @@
-<p>{{app.name}}</p>
-<div>
-  <label for="name">App name: </label>
-  <input id="name" [(ngModel)]="app.name" placeholder="name">
-</div>
+<h2>Apps</h2>
+<ul class="heroes">
+  <li *ngFor="let app of apps">
+    <button type="button" (click)="onSelect(app)">
+    <span class="badge">{{app.id}}</span>
+    <span class="name">{{app.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<app-web-app-detail [app]="selectedApp"></app-web-app-detail>
