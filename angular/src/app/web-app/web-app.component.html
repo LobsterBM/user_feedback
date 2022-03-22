@@ -9,3 +9,13 @@
 </ul>
 
 <app-web-app-detail [app]="selectedApp"></app-web-app-detail>
+
+<div>
+  <label for="new-hero">Web App name: </label>
+  <input id="new-hero" #appName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(appName.value); appName.value=''">
+    Add hero
+  </button>
+</div>

@@ -302,4 +302,9 @@
   }
 </style>
 <h1>{{title}}</h1>
-<app-web-app></app-web-app>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/webapps">WebApps</a>
+</nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages>

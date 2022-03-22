@@ -7,6 +7,13 @@ import {FormsModule} from "@angular/forms";
 import { UserComponent } from './user/user.component';
 import { AppCommentComponent } from './app-comment/app-comment.component';
 import { WebAppDetailComponent } from './web-app-detail/web-app-detail.component';
+import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -14,11 +21,19 @@ import { WebAppDetailComponent } from './web-app-detail/web-app-detail.component
     WebAppComponent,
     UserComponent,
     AppCommentComponent,
-    WebAppDetailComponent
+    WebAppDetailComponent,
+    MessagesComponent,
+    DashboardComponent
   ],
     imports: [
         BrowserModule,
-        FormsModule
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+
+      HttpClientInMemoryWebApiModule.forRoot(
+        InMemoryDataService, { dataEncapsulation: false }
+      )
     ],
   providers: [],
   bootstrap: [AppComponent]
