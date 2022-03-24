@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { WebappSearchComponent } from './webapp-search/webapp-search.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     AppCommentComponent,
     WebAppDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    WebappSearchComponent
   ],
     imports: [
         BrowserModule,

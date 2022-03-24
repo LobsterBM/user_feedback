@@ -13,6 +13,7 @@ import {WebAppService} from "../web-app.service";
 
 
 export class WebAppDetailComponent implements OnInit {
+
   @Input() app ?: WebApp;
   constructor(private route : ActivatedRoute , private webAppService : WebAppService, private location: Location) { }
 

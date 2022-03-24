@@ -1,6 +1,7 @@
 <h2>Top Apps</h2>
-<div class="webapps-menu">
-  <a *ngFor="let app of apps">
+<div class="heroes-menu">
+  <a *ngFor="let app of apps" routerLink="/detail/{{app.id}}">
     {{app.name}}
   </a>
 </div>
+<app-webapp-search></app-webapp-search>

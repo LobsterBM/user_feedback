@@ -46,6 +46,31 @@ export class WebAppService {
     );
   }
 
+  /** DELETE: delete the hero from the server */
+  deleteApp(id: number): Observable<WebApp> {
+    const url = `${this.webAppUrl}/${id}`;
+
+    return this.http.delete<WebApp>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted app id=${id}`)),
+      catchError(this.handleError<WebApp>('deleteApp'))
+    );
+  }
+
+
+  /* GET webapps whose name contains search term */
+  searchApps(term: string): Observable<WebApp[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<WebApp[]>(`${this.webAppUrl}/?name=${term}`).pipe(
+      tap(x => x.length ?
+        this.log(`found matching app "${term}"`) :
+        this.log(`no matching app "${term}"`)),
+      catchError(this.handleError<WebApp[]>('searchApps', []))
+    );
+  }
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

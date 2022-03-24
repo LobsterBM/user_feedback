@@ -31,6 +31,11 @@ export class WebAppComponent implements OnInit {
       });
   }
 
+  delete(app: WebApp): void {
+    this.apps = this.apps.filter(w => w !== app);
+    this.appService.deleteApp(app.id).subscribe();
+  }
+
 
 
   selectedApp?: WebApp;

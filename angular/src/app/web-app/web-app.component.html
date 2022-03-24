@@ -1,10 +1,12 @@
 <h2>Apps</h2>
-<ul class="heroes">
+<ul class="webapps">
   <li *ngFor="let app of apps">
     <button type="button" (click)="onSelect(app)">
     <span class="badge">{{app.id}}</span>
     <span class="name">{{app.name}}</span>
     </button>
+    <button type="button" class="delete" title="delete app"
+            (click)="delete(app)">x</button>
   </li>
 </ul>
 
@@ -18,4 +20,5 @@
   <button type="button" class="add-button" (click)="add(appName.value); appName.value=''">
     Add hero
   </button>
+
 </div>
